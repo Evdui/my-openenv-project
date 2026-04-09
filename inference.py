@@ -3,22 +3,20 @@ from openai import OpenAI
 import json
 import urllib.request
 
-# ENV VARIABLES
-LLM_BASE_URL = os.getenv("API_BASE_URL")
-API_KEY = os.getenv("HF_TOKEN") or os.getenv("API_KEY")
+API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
 MODEL_NAME = os.getenv("MODEL_NAME", "gpt-3.5-turbo")
+HF_TOKEN = os.getenv("HF_TOKEN")
+API_KEY = HF_TOKEN or os.getenv("API_KEY")
 
-# YOUR ENV API
 ENV_BASE_URL = "https://evdui-my-openenv-project.hf.space"
-
 BENCHMARK = "my-openenv-project"
 MAX_STEPS = 5
 
 client = None
-if API_KEY and LLM_BASE_URL:
+if API_KEY and API_BASE_URL:
     client = OpenAI(
         api_key=API_KEY,
-        base_url=LLM_BASE_URL
+        base_url=API_BASE_URL
     )
 
 
