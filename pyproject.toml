@@ -1,0 +1,18 @@
+[project]
+name = "my-openenv-project"
+version = "0.1.0"
+description = "Email classification OpenEnv environment"
+requires-python = ">=3.10"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "openai",
+]
+
+[tool.openenv]
+env_module = "server.app"
+env_class = "app"
+
+[project.scripts]
+server = "server.app:main"
