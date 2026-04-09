@@ -1,0 +1,23 @@
+name: my_env
+version: "1.0.0"
+description: Email classification environment
+
+tasks:
+  - id: easy
+    grader: "app.graders:GradeEasy"
+    name: "Urgent Email Classification"
+    description: "Classify an urgent email correctly"
+    difficulty: easy
+  - id: medium
+    grader: "app.graders:GradeMedium"
+    name: "Spam Email Classification"
+    description: "Classify a spam email correctly"
+    difficulty: medium
+  - id: hard
+    grader: "app.graders:GradeHard"
+    name: "Reply Email Classification"
+    description: "Classify an email requiring a reply"
+    difficulty: hard
+
+env:
+  entry_point: server.app:app
